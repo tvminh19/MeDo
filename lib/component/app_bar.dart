@@ -8,14 +8,14 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(60.0);
+  Size get preferredSize => const Size.fromHeight(60.0);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Medo', style: TextStyle(color: Colors.black)),
+      title: const Text('MeDo', style: TextStyle(color: Colors.black)),
       actions: [
         IconButton(
           onPressed: () {},
