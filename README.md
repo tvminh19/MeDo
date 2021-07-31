@@ -1,6 +1,5 @@
-# medo
-
-A new Flutter project.
+# Medo - Medicine and Doctor
+[Description]
 
 ## Getting Started
 
