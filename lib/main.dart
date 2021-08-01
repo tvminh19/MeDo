@@ -64,6 +64,7 @@ class _myAppPageState extends State<myAppPage> {
     return Scaffold(
         appBar: const CustomAppBar(),
         body: Container(child: _showPage),
+        backgroundColor: Colors.greenAccent,
         bottomNavigationBar: CurvedNavigationBar(
           items: const <Widget>[
             Icon(Icons.home, size: 30),
@@ -81,5 +82,4 @@ class _myAppPageState extends State<myAppPage> {
         ));
   }
 }
-//hi
 
