@@ -39,6 +39,22 @@ class _bannerState extends State<banner> {
             img_link: 'assets/woman.png',
             img_width: MediaQuery.of(context).size.width,
           ),
+          small_banner_service(
+            img_link: 'assets/brain.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/mind.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/smile.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/sport.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
         ],
       ),
     );
