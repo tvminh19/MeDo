@@ -19,11 +19,19 @@ class _ad_serviceState extends State<ad_service> {
           scrollDirection: Axis.horizontal,
           children: <Widget>[
             small_banner_service(
-              img_link: 'assets/doctor.jpg',
+              img_link: 'assets/chatwithdoctor.jpg',
               img_width: 150,
             ),
             small_banner_service(
-              img_link: 'assets/medicine.jpg',
+              img_link: 'assets/healthtool.jpg',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/hometest.jpg',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/haveaquestion.jpg',
               img_width: 150,
             )
           ],
