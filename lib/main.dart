@@ -73,7 +73,7 @@ class _myAppPageState extends State<myAppPage> {
             Icon(Icons.medical_services, size: 30),
             Icon(Icons.supervised_user_circle_outlined, size: 30),
           ],
-          backgroundColor: Colors.black12,
+          backgroundColor: Colors.white,
           onTap: (index) {
             setState(() {
               _showPage = _pageChooser(index);

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'components/ad_service.dart';
 import 'components/banner.dart';
 
 class MyHome extends StatefulWidget {
@@ -14,16 +15,23 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverList(delegate: 
-        SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            return banner();
-          },childCount: 1
-        )
-        )
-      ],
+    return Container(
+      child: ListView(
+        children: <Widget>[
+          banner(),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Our Sevices',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w400
+            ),
+          ),
+          ad_service(),
+        ],
+      ),
     );
   }
 }
