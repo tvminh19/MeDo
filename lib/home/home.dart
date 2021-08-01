@@ -26,7 +26,7 @@ class _MyHomeState extends State<MyHome> {
             'Our Sevices',
             style: TextStyle(
               fontSize: 25,
-              fontWeight: FontWeight.w400
+              fontWeight: FontWeight.w500
             ),
           ),
           ad_service(),

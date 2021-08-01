@@ -18,7 +18,7 @@ class _ad_serviceState extends State<ad_service> {
         child: new ListView(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
-          physics: FixedExtentScrollPhysics(),
+          physics: PageScrollPhysics(),
           children: <Widget>[
             small_banner_service(
               img_link: 'assets/chatwithdoctor.jpg',

@@ -28,15 +28,15 @@ class _bannerState extends State<banner> {
         ),
         items: <Widget>[
           small_banner_service(
-            img_link: 'assets/medicine2.jpg',
+            img_link: 'assets/besideyou.png',
             img_width: MediaQuery.of(context).size.width,
           ),
           small_banner_service(
-            img_link: 'assets/doctor.jpg',
+            img_link: 'assets/staysafe.png',
             img_width: MediaQuery.of(context).size.width,
           ),
           small_banner_service(
-            img_link: 'assets/medicine.jpg',
+            img_link: 'assets/woman.png',
             img_width: MediaQuery.of(context).size.width,
           ),
         ],
