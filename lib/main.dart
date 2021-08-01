@@ -64,7 +64,7 @@ class _myAppPageState extends State<myAppPage> {
     return Scaffold(
         appBar: const CustomAppBar(),
         body: Container(child: _showPage),
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.white,
         bottomNavigationBar: CurvedNavigationBar(
           items: const <Widget>[
             Icon(Icons.home, size: 30),
@@ -73,7 +73,7 @@ class _myAppPageState extends State<myAppPage> {
             Icon(Icons.medical_services, size: 30),
             Icon(Icons.supervised_user_circle_outlined, size: 30),
           ],
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.white,
           onTap: (index) {
             setState(() {
               _showPage = _pageChooser(index);
