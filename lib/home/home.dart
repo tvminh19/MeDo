@@ -22,14 +22,27 @@ class _MyHomeState extends State<MyHome> {
           SizedBox(
             height: 20,
           ),
-          Text(
-            'Our Sevices',
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w500
+          Container(
+            margin: const EdgeInsets.only(left: 20),
+            child: Text(
+              'Our Services',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           ad_service(),
+          Container(
+            margin: const EdgeInsets.only(left: 20),
+            child: Text(
+              'Health News',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -17,7 +17,7 @@ class _bannerState extends State<banner> {
       child: CarouselSlider(
         options: CarouselOptions(
           height: 200.0,
-          // enlargeCenterPage: true,
+          enlargeCenterPage: true,
           aspectRatio: 16 / 9,
           autoPlay: true,
           autoPlayCurve: Curves.fastOutSlowIn,
