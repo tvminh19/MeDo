@@ -6,7 +6,8 @@ class small_banner_service extends StatelessWidget {
 
   const small_banner_service({
     Key? key,
-    required this.img_link, required this.img_width,
+    required this.img_link,
+    required this.img_width,
   }) : super(key: key);
 
   @override

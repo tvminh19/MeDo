@@ -17,6 +17,8 @@ class _ad_serviceState extends State<ad_service> {
         height: 150,
         child: new ListView(
           scrollDirection: Axis.horizontal,
+          shrinkWrap: true,
+          physics: FixedExtentScrollPhysics(),
           children: <Widget>[
             small_banner_service(
               img_link: 'assets/chatwithdoctor.jpg',
@@ -33,7 +35,27 @@ class _ad_serviceState extends State<ad_service> {
             small_banner_service(
               img_link: 'assets/haveaquestion.jpg',
               img_width: 150,
-            )
+            ),
+            small_banner_service(
+              img_link: 'assets/buymedicineonline.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/calendar.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/corporatehealthcheck.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/genetictesting.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/healthdeclaration.png',
+              img_width: 150,
+            ),
           ],
         ));
   }
