@@ -34,7 +34,8 @@ class _bannerState extends State<banner> {
           small_banner_service(
             img_link: 'assets/doctor.jpg',
             img_width: MediaQuery.of(context).size.width,
-          ),small_banner_service(
+          ),
+          small_banner_service(
             img_link: 'assets/medicine.jpg',
             img_width: MediaQuery.of(context).size.width,
           ),
