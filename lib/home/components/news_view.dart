@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'news.dart';
 import 'news_item.dart';
@@ -33,23 +34,27 @@ class _news_viewState extends State<news_view> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20.0),
-      height: 150,
-      child: Container(
-        // margin: EdgeInsets.only(top: 16),
-        child: ListView.builder(
-            itemCount: newslist.length,
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return NewsTile(
-                imgUrl: newslist[index].urlToImage ?? "",
-                title: newslist[index].title ?? "",
-                desc: newslist[index].description ?? "",
-                content: newslist[index].content ?? "",
-                posturl: newslist[index].articleUrl ?? "",
-              );
-            }),
-      ),
+      height: 600,
+      child: _loading
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : Container(
+              // margin: EdgeInsets.only(top: 16),
+              child: ListView.builder(
+                  itemCount: newslist.length,
+                  physics: ClampingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    return NewsTile(
+                      imgUrl: newslist[index].urlToImage ?? "",
+                      title: newslist[index].title ?? "",
+                      desc: newslist[index].description ?? "",
+                      content: newslist[index].content ?? "",
+                      posturl: newslist[index].articleUrl ?? "",
+                    );
+                  }),
+            ),
     );
   }
 }

@@ -19,6 +19,8 @@ class _MyHomeState extends State<MyHome> {
   Widget build(BuildContext context) {
     return Container(
       child: ListView(
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
         children: <Widget>[
           banner(),
           SizedBox(
