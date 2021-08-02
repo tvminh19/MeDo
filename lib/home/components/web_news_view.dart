@@ -31,7 +31,6 @@ class _ArticleViewState extends State<ArticleView> {
               style:
                   TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
             ),
-            
           ],
         ),
         actions: <Widget>[
