@@ -27,8 +27,15 @@ class _MyPersonalState extends State<MyPersonal> {
               physics: const NeverScrollableScrollPhysics(),
               children: const <Widget>[
                 CardItem(title: 'Full information'),
-                CardItem(title: 'Your History',),
-                CardItem(title: 'Award',),
+                CardItem(
+                  title: 'My History',
+                ),
+                CardItem(
+                  title: 'My favorite',
+                ),
+                CardItem(
+                  title: 'Feedback',
+                ),
               ],
             )
           ],
