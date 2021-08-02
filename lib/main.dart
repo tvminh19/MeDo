@@ -19,6 +19,7 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Medo - Medicine & Doctor',
+      debugShowCheckedModeBanner: false,
       home: myAppPage(),
     );
   }

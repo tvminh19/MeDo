@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'components/ad_service.dart';
 import 'components/banner.dart';
+import 'components/news.dart';
+import 'components/news_view.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({Key? key}) : super(key: key);
@@ -42,7 +44,8 @@ class _MyHomeState extends State<MyHome> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-          )
+          ),
+          news_view(),
         ],
       ),
     );
