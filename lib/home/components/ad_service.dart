@@ -13,11 +13,13 @@ class _ad_serviceState extends State<ad_service> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
+        margin: const EdgeInsets.symmetric(vertical: 20.0),
         height: 150,
-        child: new ListView(
+        child: ListView(
           scrollDirection: Axis.horizontal,
-          children: <Widget>[
+          shrinkWrap: true,
+          physics: const PageScrollPhysics(),
+          children: const <Widget>[
             small_banner_service(
               img_link: 'assets/chatwithdoctor.jpg',
               img_width: 150,
@@ -33,7 +35,27 @@ class _ad_serviceState extends State<ad_service> {
             small_banner_service(
               img_link: 'assets/haveaquestion.jpg',
               img_width: 150,
-            )
+            ),
+            small_banner_service(
+              img_link: 'assets/buymedicineonline.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/calendar.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/corporatehealthcheck.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/genetictesting.png',
+              img_width: 150,
+            ),
+            small_banner_service(
+              img_link: 'assets/healthdeclaration.png',
+              img_width: 150,
+            ),
           ],
         ));
   }

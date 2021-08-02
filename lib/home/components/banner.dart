@@ -17,25 +17,42 @@ class _bannerState extends State<banner> {
       child: CarouselSlider(
         options: CarouselOptions(
           height: 200.0,
-          // enlargeCenterPage: true,
+          enlargeCenterPage: true,
           aspectRatio: 16 / 9,
           autoPlay: true,
           autoPlayCurve: Curves.fastOutSlowIn,
           enableInfiniteScroll: true,
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayAnimationDuration: const Duration(milliseconds: 800),
           viewportFraction: 0.8,
           initialPage: 0,
         ),
         items: <Widget>[
           small_banner_service(
-            img_link: 'assets/medicine2.jpg',
+            img_link: 'assets/besideyou.png',
             img_width: MediaQuery.of(context).size.width,
           ),
           small_banner_service(
-            img_link: 'assets/doctor.jpg',
+            img_link: 'assets/staysafe.png',
             img_width: MediaQuery.of(context).size.width,
-          ),small_banner_service(
-            img_link: 'assets/medicine.jpg',
+          ),
+          small_banner_service(
+            img_link: 'assets/woman.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/brain.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/mind.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/smile.png',
+            img_width: MediaQuery.of(context).size.width,
+          ),
+          small_banner_service(
+            img_link: 'assets/sport.png',
             img_width: MediaQuery.of(context).size.width,
           ),
         ],

@@ -1,9 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'components/ad_service.dart';
 import 'components/banner.dart';
+import 'components/news_view.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({Key? key}) : super(key: key);
@@ -15,23 +14,37 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-        children: <Widget>[
-          banner(),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            'Our Sevices',
+    return ListView(
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
+      children: <Widget>[
+        const banner(),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 20),
+          child: const Text(
+            'Our Services',
             style: TextStyle(
               fontSize: 25,
-              fontWeight: FontWeight.w400
+              fontWeight: FontWeight.w500,
             ),
           ),
-          ad_service(),
-        ],
-      ),
+        ),
+        const ad_service(),
+        Container(
+          margin: const EdgeInsets.only(left: 20),
+          child: const Text(
+            'Health News',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        const news_view(),
+      ],
     );
   }
 }
