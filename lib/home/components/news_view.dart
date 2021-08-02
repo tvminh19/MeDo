@@ -34,7 +34,7 @@ class _news_viewState extends State<news_view> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20.0),
-      height: 600,
+      height: 580,
       child: _loading
           ? Center(
               child: CircularProgressIndicator(),
