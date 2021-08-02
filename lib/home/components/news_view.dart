@@ -14,6 +14,7 @@ class news_view extends StatefulWidget {
 class _news_viewState extends State<news_view> {
   late bool _loading;
   var newslist;
+  
   void getNews() async {
     News news = News();
     await news.getNews();
@@ -33,28 +34,25 @@ class _news_viewState extends State<news_view> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20.0),
+      margin: const EdgeInsets.symmetric(vertical: 20.0),
       height: 580,
       child: _loading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
-          : Container(
-              // margin: EdgeInsets.only(top: 16),
-              child: ListView.builder(
-                  itemCount: newslist.length,
-                  physics: ClampingScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    return NewsTile(
-                      imgUrl: newslist[index].urlToImage ?? "",
-                      title: newslist[index].title ?? "",
-                      desc: newslist[index].description ?? "",
-                      content: newslist[index].content ?? "",
-                      posturl: newslist[index].articleUrl ?? "",
-                    );
-                  }),
-            ),
+          : ListView.builder(
+              itemCount: newslist.length,
+              physics: const ClampingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) {
+                return NewsTile(
+                  imgUrl: newslist[index].urlToImage ?? "",
+                  title: newslist[index].title ?? "",
+                  desc: newslist[index].description ?? "",
+                  content: newslist[index].content ?? "",
+                  posturl: newslist[index].articleUrl ?? "",
+                );
+              }),
     );
   }
 }

@@ -32,15 +32,14 @@ class myAppPage extends StatefulWidget {
 }
 
 class _myAppPageState extends State<myAppPage> {
-  int _page = 0;
-  final MyHome _myHome = MyHome();
-  final MyOrder _myOrder = new MyOrder();
-  final MySearch _mySearch = new MySearch();
-  final MyService _myService = new MyService();
-  final MyPersonal _myPersonal = new MyPersonal();
+  final MyHome _myHome = const MyHome();
+  final MyOrder _myOrder = const MyOrder();
+  final MySearch _mySearch = const MySearch();
+  final MyService _myService = const MyService();
+  final MyPersonal _myPersonal = const MyPersonal();
 
-  // Widget _showPage = new myApp();
-  Widget _showPage = new MyHome();
+  // Widget _showPage =  myApp();
+  Widget _showPage = const MyHome();
 
   Widget _pageChooser(int page) {
     switch (page) {
@@ -55,8 +54,7 @@ class _myAppPageState extends State<myAppPage> {
       case 4:
         return _myPersonal;
       default:
-        return new Container(
-            child: new Center(child: new Text('Can not find the page')));
+        return const Center(child: Text('Can not find the page'));
     }
   }
 
@@ -83,4 +81,3 @@ class _myAppPageState extends State<myAppPage> {
         ));
   }
 }
-

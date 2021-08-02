@@ -21,7 +21,7 @@ class _ArticleViewState extends State<ArticleView> {
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Text(
               "Health",
               style:
@@ -35,16 +35,13 @@ class _ArticleViewState extends State<ArticleView> {
         ),
         actions: <Widget>[
           Container(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(
-                Icons.share,
-                color: Colors.black
-              ))
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const Icon(Icons.share, color: Colors.black))
         ],
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: WebView(

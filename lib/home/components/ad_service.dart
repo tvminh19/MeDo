@@ -13,13 +13,13 @@ class _ad_serviceState extends State<ad_service> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
+        margin: const EdgeInsets.symmetric(vertical: 20.0),
         height: 150,
-        child: new ListView(
+        child: ListView(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
-          physics: PageScrollPhysics(),
-          children: <Widget>[
+          physics: const PageScrollPhysics(),
+          children: const <Widget>[
             small_banner_service(
               img_link: 'assets/chatwithdoctor.jpg',
               img_width: 150,

@@ -22,7 +22,7 @@ class _bannerState extends State<banner> {
           autoPlay: true,
           autoPlayCurve: Curves.fastOutSlowIn,
           enableInfiniteScroll: true,
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayAnimationDuration: const Duration(milliseconds: 800),
           viewportFraction: 0.8,
           initialPage: 0,
         ),
