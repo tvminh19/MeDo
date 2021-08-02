@@ -10,8 +10,6 @@ class MyPersonal extends StatefulWidget {
 class _MyPersonalState extends State<MyPersonal> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('personal'),
-    );
+    return const Text('personal');
   }
 }

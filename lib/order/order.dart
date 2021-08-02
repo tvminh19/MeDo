@@ -10,8 +10,6 @@ class MyOrder extends StatefulWidget {
 class _MyOrderState extends State<MyOrder> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Order'),
-    );
+    return const Text('Order');
   }
 }
