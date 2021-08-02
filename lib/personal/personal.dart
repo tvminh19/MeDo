@@ -15,12 +15,22 @@ class _MyPersonalState extends State<MyPersonal> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            StackContainer(),
-            ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) => CardItem(),
-            shrinkWrap: true,
-            itemCount: 6,) 
+            const StackContainer(),
+            // ListView.builder(
+            //   physics: const NeverScrollableScrollPhysics(),
+            //   itemBuilder: (context, index) => const CardItem(),
+            //   shrinkWrap: true,
+            //   itemCount: 4,
+            // ),
+            ListView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: const <Widget>[
+                CardItem(title: 'Full information'),
+                CardItem(title: 'Your History',),
+                CardItem(title: 'Award',),
+              ],
+            )
           ],
         ),
       ),
@@ -29,48 +39,38 @@ class _MyPersonalState extends State<MyPersonal> {
 }
 
 class CardItem extends StatelessWidget {
-  const CardItem({
-    Key? key,
-  }) : super(key: key);
+  final String title;
+
+  const CardItem({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0, 
-            vertical: 21.0),
-          child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.local_hospital,
-              size: 40.0,
-              color: Colors.blueAccent
-            ),
-          ),
-          SizedBox(width: 24.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 21.0),
+        child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text("Joined date", style: TextStyle(
-                //fontWeight: FontWeight.bold,
-                fontSize: 18.0
-              )),
-              SizedBox(height: 4.0),
-              Text("21 August 2020", style: TextStyle(
-                color: Colors.grey[700],
-                fontSize: 12.0
-              ))
-            ]
-          )
-      ]),
-        )),
+              IconButton(
+                onPressed: () {},
+                icon:
+                    Icon(Icons.settings, size: 40.0, color: Colors.blueAccent),
+              ),
+              SizedBox(width: 24.0),
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(title, style: const TextStyle(fontSize: 18.0)),
+                    const SizedBox(height: 4.0),
+                    Text("21 August 2020",
+                        style:
+                            TextStyle(color: Colors.grey[700], fontSize: 12.0))
+                  ])
+            ]),
+      )),
     );
   }
 }
@@ -86,21 +86,20 @@ class StackContainer extends StatelessWidget {
       height: 310.0,
       child: Stack(
         children: <Widget>[
-          Container(),
           ClipPath(
             child: Container(
-              height: 240.0,
+              height: 220.0,
               color: Colors.greenAccent,
             ),
           ),
           Align(
-            alignment: Alignment(0, 1),
+            alignment: const Alignment(0, 1),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
+              children: const <Widget>[
                 CircleAvatar(
                   backgroundColor: Colors.black,
-                  radius: 50.0,
+                  radius: 80.0,
                 ),
                 Text("User",
                     style:
@@ -108,7 +107,7 @@ class StackContainer extends StatelessWidget {
               ],
             ),
           ),
-          TopBar(),
+          const TopBar(),
         ],
       ),
     );
@@ -129,7 +128,7 @@ class TopBar extends StatelessWidget {
         children: <Widget>[
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           )
         ],
       ),
