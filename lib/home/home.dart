@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'components/ad_service.dart';
+import 'components/ad2.dart';
 import 'components/banner.dart';
 
 class MyHome extends StatefulWidget {
@@ -14,8 +14,7 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
+      physics: ClampingScrollPhysics(),
       children: <Widget>[
         const banner(),
         const SizedBox(
@@ -31,7 +30,7 @@ class _MyHomeState extends State<MyHome> {
             ),
           ),
         ),
-        const ad_service(),
+        const ad_service2()
       ],
     );
   }
