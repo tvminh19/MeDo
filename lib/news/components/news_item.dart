@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:medo/home/components/web_news_view.dart';
+import 'package:medo/news/components/web_news_view.dart';
 
 class NewsTile extends StatelessWidget {
   final String imgUrl, title, desc, content, posturl;

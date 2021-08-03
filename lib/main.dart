@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medo/order/order.dart';
 import 'package:medo/personal/personal.dart';
 import 'package:medo/search/search.dart';
-import 'package:medo/serviceInfomation/service_information.dart';
+import 'package:medo/news/news_page.dart';
 
 import 'component/app_bar.dart';
 import 'home/home.dart';
@@ -35,7 +35,7 @@ class _myAppPageState extends State<myAppPage> {
   final MyHome _myHome = const MyHome();
   final MyOrder _myOrder = const MyOrder();
   final MySearch _mySearch = const MySearch();
-  final MyService _myService = const MyService();
+  final MyNews _myService = const MyNews();
   final MyPersonal _myPersonal = const MyPersonal();
 
   // Widget _showPage =  myApp();
@@ -69,7 +69,7 @@ class _myAppPageState extends State<myAppPage> {
             Icon(Icons.home, size: 30),
             Icon(Icons.search_rounded, size: 30),
             Icon(Icons.add, size: 30),
-            Icon(Icons.medical_services, size: 30),
+            Icon(Icons.panorama_photosphere, size: 30),
             Icon(Icons.supervised_user_circle_outlined, size: 30),
           ],
           backgroundColor: Colors.white,
