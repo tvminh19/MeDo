@@ -7,6 +7,7 @@ class Article {
   String content;
   String articleUrl;
 
+  //constructor
   Article(
       {required this.title,
       required this.description,
