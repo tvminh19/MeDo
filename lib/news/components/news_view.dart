@@ -14,7 +14,7 @@ class news_view extends StatefulWidget {
 class _news_viewState extends State<news_view> {
   late bool _loading;
   var newslist;
-  
+
   void getNews() async {
     News news = News();
     await news.getNews();
@@ -35,7 +35,7 @@ class _news_viewState extends State<news_view> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20.0),
-      height: 580,
+      height: MediaQuery.of(context).size.height,
       child: _loading
           ? const Center(
               child: CircularProgressIndicator(),
