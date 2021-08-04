@@ -10,7 +10,7 @@ class News {
     String myLink =
         "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=${api_key}";
 
-    var response = await http.get(Uri.parse(myLink));
+    final response = await http.get(Uri.parse(myLink));
 
     var jsonData = jsonDecode(response.body);
 
