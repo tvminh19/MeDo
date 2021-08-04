@@ -14,7 +14,7 @@ class news_view extends StatefulWidget {
 class _news_viewState extends State<news_view> {
   late bool _loading;
   var newslist;
-  
+
   void getNews() async {
     News news = News();
     await news.getNews();

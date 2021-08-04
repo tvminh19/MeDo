@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart' show MdiIcons;
 import 'package:medo/order/order.dart';
 import 'package:medo/personal/personal.dart';
 import 'package:medo/search/search.dart';
@@ -70,8 +69,8 @@ class _myAppPageState extends State<myAppPage> {
             Icon(Icons.home, size: 30),
             Icon(Icons.search_rounded, size: 30),
             Icon(Icons.add, size: 30),
-            Icon(MdiIcons.newspaper, size: 30),
-            Icon(MdiIcons.account, size: 30),
+            Icon(Icons.panorama_horizontal_outlined, size: 30),
+            Icon(Icons.supervisor_account_sharp, size: 30),
           ],
           backgroundColor: Colors.white,
           onTap: (index) {
