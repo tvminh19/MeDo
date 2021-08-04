@@ -66,11 +66,12 @@ class _myAppPageState extends State<myAppPage> {
         backgroundColor: Colors.white,
         bottomNavigationBar: CurvedNavigationBar(
           items: const <Widget>[
+            BottomNavigationBarItem(icon: Icons.home),
             Icon(Icons.home, size: 30),
             Icon(Icons.search_rounded, size: 30),
             Icon(Icons.add, size: 30),
             Icon(Icons.panorama_horizontal_outlined, size: 30),
-            Icon(Icons.supervisor_account_sharp, size: 30),
+            Icon(Icons.account_circle_outlined, size: 30),
           ],
           backgroundColor: Colors.white,
           onTap: (index) {
