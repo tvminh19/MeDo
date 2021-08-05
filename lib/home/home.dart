@@ -23,7 +23,7 @@ class _MyHomeState extends State<MyHome> {
         Container(
           margin: const EdgeInsets.only(left: 20),
           child: const Text(
-            'Our Services',
+            'Connection - Services',
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w500,

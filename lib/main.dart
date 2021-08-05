@@ -65,8 +65,8 @@ class _myAppPageState extends State<myAppPage> {
         body: Container(child: _showPage),
         backgroundColor: Colors.white,
         bottomNavigationBar: CurvedNavigationBar(
+          height: 50,
           items: const <Widget>[
-            BottomNavigationBarItem(icon: Icons.home),
             Icon(Icons.home, size: 30),
             Icon(Icons.search_rounded, size: 30),
             Icon(Icons.add, size: 30),
