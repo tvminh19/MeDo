@@ -53,10 +53,7 @@ class _ad_service2State extends State<ad_service2> {
       case 7:
         return home_test();
       case 8:
-        return ArticleView(
-          postUrl:
-              "https://familydoctor.org/your-health-resources/health-tools/",
-        );
+        return health_tool();
       default:
         print('wrong');
     }
