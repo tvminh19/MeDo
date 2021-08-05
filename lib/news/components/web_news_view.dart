@@ -23,11 +23,11 @@ class _ArticleViewState extends State<ArticleView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             Text(
-              "Medo",
+              "Me",
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
             ),
             Text(
-              "News",
+              "do",
               style:
                   TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
             ),

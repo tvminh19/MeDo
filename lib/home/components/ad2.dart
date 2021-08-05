@@ -10,6 +10,7 @@ import 'package:medo/home/functions/health_declaration/health_declaration.dart';
 import 'package:medo/home/functions/health_tools/health_tools.dart';
 import 'package:medo/home/functions/home_test/home_test.dart';
 import 'package:medo/home/functions/questions/questions.dart';
+import 'package:medo/news/components/web_news_view.dart';
 
 class ad_service2 extends StatefulWidget {
   const ad_service2({Key? key}) : super(key: key);
@@ -37,7 +38,8 @@ class _ad_service2State extends State<ad_service2> {
       case 0:
         return chat_with_doctor();
       case 1:
-        return buy_medicine();
+        return ArticleView(
+            postUrl: 'https://www.pharmacity.vn/san-pham/page/2/');
       case 2:
         return calendar();
       case 3:
@@ -47,11 +49,14 @@ class _ad_service2State extends State<ad_service2> {
       case 5:
         return question();
       case 6:
-        return health_declaration();
+        return ArticleView(postUrl: "https://tokhaiyte.vn/");
       case 7:
         return home_test();
       case 8:
-        return health_tool();
+        return ArticleView(
+          postUrl:
+              "https://familydoctor.org/your-health-resources/health-tools/",
+        );
       default:
         print('wrong');
     }
@@ -77,6 +82,8 @@ class _ad_service2State extends State<ad_service2> {
                 img_width: 150,
               ),
             ),
+            shrinkWrap: true,
+            primary: false,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 5,
