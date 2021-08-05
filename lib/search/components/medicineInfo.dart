@@ -6,12 +6,12 @@ class medicineInfo extends StatelessWidget {
     Key? key,
     required this.productNames,
     required this.productImages,
-    required this.productDescriptions,
+    required this.productIngredients,
   }) : super(key: key);
 
   final List<Map<String, dynamic>>? productNames;
   final List<Map<String, dynamic>>? productImages;
-  final List<Map<String, dynamic>>? productDescriptions;
+  final List<Map<String, dynamic>>? productIngredients;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class medicineInfo extends StatelessWidget {
               return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
@@ -35,25 +35,37 @@ class medicineInfo extends StatelessWidget {
                           return const FlutterLogo(size: 72);
                         }),
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            productNames![index * 2]['title'],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                            ),
+                      Flexible(
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                trim(productNames![index * 2]['title']),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                trim(productIngredients![index]['title']),
+                              )
+                            ],
                           ),
-                          Text(
-                            'Thành phần: ' +
-                                productDescriptions![index]['title'],
-                          )
-                        ],
+                        ),
                       ),
                     ],
                   ));
             }));
   }
+}
+
+String trim(String str) {
+  return str
+      .replaceFirst(new RegExp(r"^\s+"), "")
+      .replaceFirst(new RegExp(r"\s+$"), "");
 }
 
 //da lam xong

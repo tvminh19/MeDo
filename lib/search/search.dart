@@ -15,7 +15,7 @@ class _MySearchState extends State<MySearch> {
 
   List<Map<String, dynamic>>? productNames;
   List<Map<String, dynamic>>? productImages;
-  List<Map<String, dynamic>>? productDescriptions;
+  List<Map<String, dynamic>>? productIngredients;
   List<int> emptyIndex = [];
 
   void fetchProducts() async {
@@ -24,7 +24,7 @@ class _MySearchState extends State<MySearch> {
       setState(() {
         // getElement takes the address of html tag/element and attributes you want to scrap from website
         // it will return the attributes in the same order passed
-        productNames = webScraper.getElement('a.textlink01_v', ['innerHtml']);
+        productNames = webScraper.getElement('a.textlink01_v', ['innerText']);
         productImages = webScraper.getElement('img.imgdrg_lst', ['src']);
         productNames!.forEach((element) {
           int i = productNames!.indexOf(element);
@@ -33,8 +33,9 @@ class _MySearchState extends State<MySearch> {
         emptyIndex.forEach((element) {
           productNames!.removeAt(element);
         });
-        productDescriptions =
-            webScraper.getElement('p.textdrg_hoz', ['innerHtml']);
+        productIngredients = webScraper.getElement(
+            '#dlstThuoc > tbody > tr > td > table > tbody > tr:nth-child(2) > td.textdrg_hoz > div',
+            ['innerText']);
       });
     }
   }
@@ -52,17 +53,16 @@ class _MySearchState extends State<MySearch> {
         children: [
           productNames == null || productNames!.length < 1
               ? Center(
-                  child:
-                      CircularProgressIndicator(), // Loads Circular Loading Animation
-                  //   Text(
-                  // "No result",
-                  // textAlign: TextAlign.center,
-                  // ),
+                  child: Center(
+                      child:
+                          CircularProgressIndicator()), // Loads Circular Loading Animation
                 )
-              : medicineInfo(
-                  productNames: productNames,
-                  productImages: productImages,
-                  productDescriptions: productDescriptions),
+              : Flexible(
+                  child: medicineInfo(
+                      productNames: productNames,
+                      productImages: productImages,
+                      productIngredients: productIngredients),
+                ),
         ],
       ),
     );
