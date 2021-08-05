@@ -1,6 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medo/home/components/small_service.dart';
+import 'package:medo/home/functions/buy_medicine/buy_medicine.dart';
+import 'package:medo/home/functions/calendar/calendar.dart';
+import 'package:medo/home/functions/chat_with_doctor/chat_with_doctor.dart';
+import 'package:medo/home/functions/corporator_health/corporator_health.dart';
+import 'package:medo/home/functions/genetic_test/genetic_test.dart';
+import 'package:medo/home/functions/health_declaration/health_declaration.dart';
+import 'package:medo/home/functions/health_tools/health_tools.dart';
+import 'package:medo/home/functions/home_test/home_test.dart';
+import 'package:medo/home/functions/questions/questions.dart';
 
 class ad_service2 extends StatefulWidget {
   const ad_service2({Key? key}) : super(key: key);
@@ -10,59 +19,70 @@ class ad_service2 extends StatefulWidget {
 }
 
 class _ad_service2State extends State<ad_service2> {
+  late String imgLink;
+  List<String> listImgLink = [
+    "assets/chatwithdoctor.jpg",
+    "assets/buymedicineonline.png",
+    "assets/calendar.png",
+    "assets/corporatehealthcheck.png",
+    "assets/genetictesting.png",
+    "assets/haveaquestion.jpg",
+    "assets/healthdeclaration.png",
+    "assets/hometest.jpg",
+    "assets/healthtool.jpg"
+  ];
+
+  tapped(index) {
+    switch (index) {
+      case 0:
+        return chat_with_doctor();
+      case 1:
+        return buy_medicine();
+      case 2:
+        return calendar();
+      case 3:
+        return corporator_health();
+      case 4:
+        return genetic_test();
+      case 5:
+        return question();
+      case 6:
+        return health_declaration();
+      case 7:
+        return home_test();
+      case 8:
+        return health_tool();
+      default:
+        print('wrong');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20.0),
       height: 430,
       child: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
-        child: GridView.count(
-          crossAxisCount: 3,
-          childAspectRatio: 1,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 10,
-          physics: NeverScrollableScrollPhysics(),
-          children: <Widget>[
-            small_banner_service(
-              img_link: 'assets/chatwithdoctor.jpg',
-              img_width: 150,
+          margin: EdgeInsets.only(left: 10, right: 10),
+          child: GridView.builder(
+            itemCount: 9,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => tapped(index),
+                  )),
+              child: small_banner_service(
+                img_link: listImgLink[index],
+                img_width: 150,
+              ),
             ),
-            small_banner_service(
-              img_link: 'assets/healthtool.jpg',
-              img_width: 150,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 0,
             ),
-            small_banner_service(
-              img_link: 'assets/hometest.jpg',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/haveaquestion.jpg',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/buymedicineonline.png',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/calendar.png',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/corporatehealthcheck.png',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/genetictesting.png',
-              img_width: 150,
-            ),
-            small_banner_service(
-              img_link: 'assets/healthdeclaration.png',
-              img_width: 150,
-            ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
