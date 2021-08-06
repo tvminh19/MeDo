@@ -27,17 +27,21 @@ class _MySearchState extends State<MySearch> {
         productNames = webScraper.getElement('a.textlink01_v', ['innerText']);
         productImages = webScraper.getElement('img.imgdrg_lst', ['src']);
 
-        productNames!.forEach((element) {
-          int i = productNames!.indexOf(element);
-          if (productNames![i]['title'].toString() == '') emptyIndex.add(i);
-        });
-        emptyIndex.forEach((element) {
-          productNames!.removeAt(element);
-        });
+        preprocessMedicineList();
 
         productDetails = webScraper.getElement('td.textdrg_hoz', ['innerText']);
       });
     }
+  }
+
+  void preprocessMedicineList() {
+    productNames!.forEach((element) {
+      int i = productNames!.indexOf(element);
+      if (productNames![i]['title'].toString() == '') emptyIndex.add(i);
+    });
+    emptyIndex.forEach((element) {
+      productNames!.removeAt(element);
+    });
   }
 
   @override
@@ -55,12 +59,10 @@ class _MySearchState extends State<MySearch> {
                   child:
                       CircularProgressIndicator()), // Loads Circular Loading Animation
             )
-          : Flexible(
-              child: medicineInfo(
-                productNames: productNames,
-                productImages: productImages,
-                productDetails: productDetails,
-              ),
+          : medicineInfo(
+              productNames: productNames,
+              productImages: productImages,
+              productDetails: productDetails,
             ),
     );
   }
