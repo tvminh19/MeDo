@@ -38,7 +38,7 @@ class _MySearchState extends State<MySearch> {
         FloatingSearchBarAction(
           showIfOpened: false,
           child: CircularButton(
-            icon: const Icon(Icons.place),
+            icon: const Icon(Icons.search),
             onPressed: () {},
           ),
         ),
