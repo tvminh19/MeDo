@@ -30,7 +30,7 @@ class _MyHomeState extends State<MyHome> {
             ),
           ),
         ),
-        const ad_service2()
+        const ad_service()
       ],
     );
   }
