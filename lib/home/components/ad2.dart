@@ -12,14 +12,14 @@ import 'package:medo/home/functions/home_test/home_test.dart';
 import 'package:medo/home/functions/questions/questions.dart';
 import 'package:medo/news/components/web_news_view.dart';
 
-class ad_service2 extends StatefulWidget {
-  const ad_service2({Key? key}) : super(key: key);
+class ad_service extends StatefulWidget {
+  const ad_service({Key? key}) : super(key: key);
 
   @override
-  _ad_service2State createState() => _ad_service2State();
+  _ad_serviceState createState() => _ad_serviceState();
 }
 
-class _ad_service2State extends State<ad_service2> {
+class _ad_serviceState extends State<ad_service> {
   late String imgLink;
   List<String> listImgLink = [
     "assets/chatwithdoctor.jpg",
