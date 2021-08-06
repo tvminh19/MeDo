@@ -15,7 +15,7 @@ class _MySearchState extends State<MySearch> {
 
   List<Map<String, dynamic>>? productNames;
   List<Map<String, dynamic>>? productImages;
-  List<Map<String, dynamic>>? productIngredients;
+  List<Map<String, dynamic>>? productDetails;
   List<int> emptyIndex = [];
 
   void fetchProducts() async {
@@ -26,6 +26,7 @@ class _MySearchState extends State<MySearch> {
         // it will return the attributes in the same order passed
         productNames = webScraper.getElement('a.textlink01_v', ['innerText']);
         productImages = webScraper.getElement('img.imgdrg_lst', ['src']);
+
         productNames!.forEach((element) {
           int i = productNames!.indexOf(element);
           if (productNames![i]['title'].toString() == '') emptyIndex.add(i);
@@ -33,9 +34,8 @@ class _MySearchState extends State<MySearch> {
         emptyIndex.forEach((element) {
           productNames!.removeAt(element);
         });
-        productIngredients = webScraper.getElement(
-            '#dlstThuoc > tbody > tr > td > table > tbody > tr:nth-child(2) > td.textdrg_hoz > div',
-            ['innerText']);
+
+        productDetails = webScraper.getElement('td.textdrg_hoz', ['innerText']);
       });
     }
   }
@@ -49,22 +49,19 @@ class _MySearchState extends State<MySearch> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          productNames == null || productNames!.length < 1
-              ? Center(
-                  child: Center(
-                      child:
-                          CircularProgressIndicator()), // Loads Circular Loading Animation
-                )
-              : Flexible(
-                  child: medicineInfo(
-                      productNames: productNames,
-                      productImages: productImages,
-                      productIngredients: productIngredients),
-                ),
-        ],
-      ),
+      child: productNames == null || productNames!.length < 1
+          ? Center(
+              child: Center(
+                  child:
+                      CircularProgressIndicator()), // Loads Circular Loading Animation
+            )
+          : Flexible(
+              child: medicineInfo(
+                productNames: productNames,
+                productImages: productImages,
+                productDetails: productDetails,
+              ),
+            ),
     );
   }
 }
