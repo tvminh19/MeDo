@@ -19,9 +19,11 @@ class _news_viewState extends State<news_view> {
     News news = News();
     await news.getNews();
     newslist = news.news;
-    setState(() {
-      _loading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _loading = false;
+      });
+    }
   }
 
   @override
