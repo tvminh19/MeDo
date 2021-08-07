@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "13273282576",
+    "project_id": "medo-23752",
+    "storage_bucket": "medo-23752.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13273282576:android:c80322eb1633b65ffdb295",
+        "android_client_info": {
+          "package_name": "com.flames_hcmus.medo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13273282576-p5mt36h60f5se6h2fiai9p37mfml0539.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByX-1df5kLibhgOEGmSj3Y9xNPwFoxSTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13273282576-p5mt36h60f5se6h2fiai9p37mfml0539.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
