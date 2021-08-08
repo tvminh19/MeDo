@@ -1,12 +1,13 @@
 class Article {
-  String title;
-  String author;
-  String description;
-  String urlToImage;
-  DateTime publshedAt;
-  String content;
-  String articleUrl;
+  final String? title;
+  final String? author;
+  final String? description;
+  final String? urlToImage;
+  final DateTime? publshedAt;
+  final String? content;
+  final String? articleUrl;
 
+  //constructor
   Article(
       {required this.title,
       required this.description,
