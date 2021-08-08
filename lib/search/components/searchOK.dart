@@ -22,13 +22,16 @@ class _SearchCompleteState extends State<SearchComplete> {
   List<Map<String, dynamic>>? productImages;
   List<Map<String, dynamic>>? productDetails;
   List<int> emptyIndex = [];
+  var _check;
+  var timeout = false;
 
   void fetchProducts() async {
-    if (await webScraper
-        .loadWebPage('/thuoc/drgsearch.aspx?act=DrugSearch&key=' +
+    _check = await webScraper.loadWebPage(
+        '/thuoc/drgsearch.aspx?act=DrugSearch&key=' +
             widget.nameOfMedicine +
-            // 'Panadol' +
-            '&opt=TT')) {
+            '&opt=TT');
+    if (_check) {
+      Future.delayed(Duration(seconds: 5));
       setState(() {
         // getElement takes the address of html tag/element and attributes you want to scrap from website
         // it will return the attributes in the same order passed
@@ -38,6 +41,7 @@ class _SearchCompleteState extends State<SearchComplete> {
         preprocessMedicineList();
 
         productDetails = webScraper.getElement('td.textdrg_hoz', ['innerText']);
+        timeout = true;
       });
     }
   }
@@ -60,19 +64,24 @@ class _SearchCompleteState extends State<SearchComplete> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: productNames == null || productNames!.length < 1
-          ? Center(
-              child: Center(
-                  child:
-                      CircularProgressIndicator()), // Loads Circular Loading Animation
-            )
-          : medicineInfo(
-              productNames: productNames,
-              productImages: productImages,
-              productDetails: productDetails,
-            ),
-    ));
+    return Scaffold(body: SafeArea(child: getBody()));
+  }
+
+  getBody() {
+    if (!timeout) {
+      return Center(child: CircularProgressIndicator());
+    } else if (productNames != null && productNames!.length > 0) {
+      return medicineInfo(
+        productNames: productNames,
+        productImages: productImages,
+        productDetails: productDetails,
+      );
+    } else {
+      return Center(
+          child: Text(
+        "No result",
+        textScaleFactor: 3,
+      ));
+    }
   }
 }
