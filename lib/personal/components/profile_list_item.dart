@@ -4,17 +4,19 @@ class ProfileListItem extends StatelessWidget {
   final IconData icon;
   final text;
   final bool hasNavigation;
+  final VoidCallback callback;
 
   ProfileListItem({
     Key? key,
     required this.icon,
     this.hasNavigation = false,
-    this.text,
+    this.text, required this.callback,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      child: Container(
         height: 55,
         margin: EdgeInsets.symmetric(horizontal: 40).copyWith(bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -30,6 +32,9 @@ class ProfileListItem extends StatelessWidget {
             if (this.hasNavigation)
               Icon(Icons.arrow_forward_ios_rounded, size: 25)
           ],
-        ));
+        ),
+      ),
+      onTap: callback,
+    );
   }
 }
