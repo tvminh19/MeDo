@@ -10,6 +10,18 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    showInfoScreen() => {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => InfoScreen()))
+        };
+    logout() async {
+      await _auth.signOut();
+    }
+    doSth() => {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("Function not available!"),
+          ))
+        };
     return ThemeSwitchingArea(child: Builder(builder: (context) {
       return Scaffold(
           body: Column(
@@ -19,40 +31,35 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(height: 50),
             Header(),
             SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-              ),
-              child: Text('Personal Information',
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => InfoScreen()));
-              },
+            ProfileListItem(
+              icon: Icons.person,
+              text: 'Personal Information',
+              hasNavigation: true,
+              callback: showInfoScreen,
             ),
             ProfileListItem(
               icon: Icons.favorite_outline_rounded,
               text: 'Favorite',
               hasNavigation: true,
+              callback: doSth,
             ),
             ProfileListItem(
               icon: Icons.payment_outlined,
               text: 'Purchase',
               hasNavigation: true,
+              callback: doSth,
             ),
             ProfileListItem(
               icon: Icons.help_outline_rounded,
               text: 'Help & Support',
               hasNavigation: true,
+              callback: doSth,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-              ),
-              child: Text('Log out', style: TextStyle(color: Colors.white)),
-              onPressed: () async {
-                await _auth.signOut();
-              },
+            ProfileListItem(
+              icon: Icons.logout,
+              text: 'Log-out',
+              hasNavigation: true,
+              callback: logout,
             ),
           ]))
         ],
