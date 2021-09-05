@@ -51,6 +51,8 @@ dependencies:
   convex_bottom_bar: ^3.0.0
   material_floating_search_bar: ^0.3.4
   url_launcher: ^6.0.10
+  flutter_svg: ^0.22.0
+  lottie: ^1.1.0
 
 dev_dependencies:
   flutter_test:
