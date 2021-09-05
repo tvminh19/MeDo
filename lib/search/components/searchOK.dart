@@ -35,7 +35,8 @@ class _SearchCompleteState extends State<SearchComplete> {
       setState(() {
         // getElement takes the address of html tag/element and attributes you want to scrap from website
         // it will return the attributes in the same order passed
-        productNames = webScraper.getElement('a.textlink01_v', ['innerText']);
+        productNames =
+            webScraper.getElement('a.textlink01_v', ['innerText', 'href']);
         productImages = webScraper.getElement('img.imgdrg_lst', ['src']);
 
         preprocessMedicineList();
@@ -64,7 +65,11 @@ class _SearchCompleteState extends State<SearchComplete> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: getBody()));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Medo - Medicine Search"),
+        ),
+        body: SafeArea(child: getBody()));
   }
 
   getBody() {
@@ -72,16 +77,29 @@ class _SearchCompleteState extends State<SearchComplete> {
       return Center(child: CircularProgressIndicator());
     } else if (productNames != null && productNames!.length > 0) {
       return medicineInfo(
-        productNames: productNames,
-        productImages: productImages,
-        productDetails: productDetails,
-      );
+          productNames: productNames,
+          productImages: productImages,
+          productDetails: productDetails,
+          baseUrl: "https://www.thuocbietduoc.com.vn");
     } else {
       return Center(
-          child: Text(
-        "No result",
-        textScaleFactor: 3,
-      ));
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "No result",
+              textScaleFactor: 2,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Search again.'),
+            ),
+          ],
+        ),
+      );
     }
   }
 }

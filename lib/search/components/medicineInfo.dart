@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class medicineInfo extends StatelessWidget {
   const medicineInfo(
       {Key? key,
       required this.productNames,
       required this.productImages,
-      required this.productDetails})
+      required this.productDetails,
+      required this.baseUrl})
       : super(key: key);
 
   final List<Map<String, dynamic>>? productNames, productImages, productDetails;
+  final String baseUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,26 @@ class medicineInfo extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ExpansionTile(
               title: Row(children: [
-                medicineImageWidget(
-                    productImages: productImages![index]['attributes']['src']),
-                medicineTitleWidget(
-                    productNames: trim(productNames![index * 2]['title'])),
+                InkWell(
+                    child: medicineImageWidget(
+                        productImages: productImages![index]['attributes']
+                            ['src']),
+                    onTap: () async {
+                      launch(trim(baseUrl +
+                          productNames![index * 2]['attributes']['href']
+                              .toString()));
+                    }),
+                Expanded(
+                  child: InkWell(
+                      child: medicineTitleWidget(
+                          productNames:
+                              trim(productNames![index * 2]['title'])),
+                      onTap: () async {
+                        launch(trim(baseUrl +
+                            productNames![index * 2]['attributes']['href']
+                                .toString()));
+                      }),
+                )
               ]), //Medicine name,
               children: <Widget>[
                 ListTile(
@@ -75,10 +94,8 @@ class medicineTitleWidget extends StatelessWidget {
 }
 
 class medicineImageWidget extends StatelessWidget {
-  const medicineImageWidget({
-    Key? key,
-    required this.productImages,
-  }) : super(key: key);
+  const medicineImageWidget({Key? key, required this.productImages})
+      : super(key: key);
 
   final String productImages;
 
@@ -86,10 +103,14 @@ class medicineImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
-      child: Image.network(productImages, height: 72, width: 72, errorBuilder:
-          (BuildContext context, Object exception, StackTrace? stackTrace) {
-        return const FlutterLogo(size: 72);
-      }), //Medicine Image
+      child: Column(
+        children: [
+          Image.network(productImages, height: 72, width: 72, errorBuilder:
+              (BuildContext context, Object exception, StackTrace? stackTrace) {
+            return const FlutterLogo(size: 72);
+          }),
+        ],
+      ),
     );
   }
 }
@@ -119,7 +140,8 @@ class descriptionTextWidget extends StatelessWidget {
 String trim(String str) {
   return str
       .replaceFirst(new RegExp(r"^\s+"), "")
-      .replaceFirst(new RegExp(r"\s+$"), "");
+      .replaceFirst(new RegExp(r"\s+$"), "")
+      .replaceFirst("..", "");
 }
 
 //da lam xong
